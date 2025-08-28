@@ -1,0 +1,56 @@
+
+What I need to make:
+  A web crawler:
+    Discovers and downloads raw data from web pages
+    Must respect the robots.txt file, which dictates what parts of the site the crawler should be allowed to access
+
+  An indexer:
+    extracts meaningful information from the raw data that was 'crawled' by the web crawler
+    builds a structured index that maps terms to their locations in the dataset, allowing sites to be recommended to the user when certain terms are inputted
+
+  A query processer:
+    Parses the user's search query into tokens and retrivees the relevant documents from the database, and ranks them based on their relevance to the user's query
+
+A ranking algorithm:
+    
+  A user interface:
+    
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------Porgram Starts Here-------------------------------------------------------------------------------------
+
+_____________Set up the web crawler____________
+
+1. Discovery (the crawler starts with a list of URLs to visit, called seeds. It then retrives the contents of the URL and identifies links within the pages to scan as well)
+2. Download (the crawler downloads the content from each page it visits, including images, text, videos etc.)
+3. Parsing (the crawler parses the html content to find useful information e.g., titles, descriptions, alt text etc.)
+4. Storing (the extracted information is stored in a databse or indexed to make the indexer able to access the data)
+5. Updates (the crawler revisits websites every week or so to check for updates or changes to ensure that the index remains current)
+
+_______________Set up the indexer_______________
+
+1. Text prepocessing
+
+  1.1 Setup tokenization (splitting the raw data obtained from the crawler into individual words/phrases, these are known as tokens)
+  1.2 Remove stopwords (removing common words that serve no value to the user e.g., "the", "and")
+  1.3 Lemmetization (reducing words to their base forms or root words. e.g., running turns into running)
+
+2. Creating the index structure
+  2.1 Create an inverted index (an inverted dictionary where each term points to a list of documents containing it)
+  2.2 Counting term frequency or TF (counting the number of times a term appears in each document)
+  2.3 Implementing inverse document frequency or IDF (IDF is a statistical metric used to decide the importance or rarity of a certain term)
+
+NOTE --- 2.2 and 2.3 are often reffered to as a tf-idf when used in combination
+
+___________Set up the query processer___________
+
+1. Parsing the query
+  1.1 Tokenization (same as with the indexer, but with the user's inputted data)
+  1.2 Normalization ()
+
