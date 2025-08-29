@@ -52,5 +52,6 @@ ___________Set up the query processer___________
 
 1. Parsing the query
   1.1 Tokenization (same as with the indexer, but with the user's inputted data)
-  1.2 Normalization ()
+  1.2 Normalization (converting terms to a standard format e.g., removing punctuation, lowercasing)
+  1.3
 
