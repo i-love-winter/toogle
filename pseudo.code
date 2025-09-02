@@ -9,12 +9,10 @@ What I need to make:
     builds a structured index that maps terms to their locations in the dataset, allowing sites to be recommended to the user when certain terms are inputted
 
   A query processer:
-    Parses the user's search query into tokens and retrivees the relevant documents from the database, and ranks them based on their relevance to the user's query
+    Parses the user's search query into tokens and retrives the relevant documents from the database, and ranks them based on their relevance to the user's query
 
-A ranking algorithm:
-    
   A user interface:
-    
+    That one's pretty self explanatory
 
 
 
@@ -67,13 +65,10 @@ ___________Set up the query processer___________
   4.1 tf-idf (same as with the indexer, but to decide what order to show the results in)
   4.2 bm25 (https://www.geeksforgeeks.org/nlp/what-is-bm25-best-matching-25-algorithm) see here for an explanation
 
-NOTE --- after 4.2, implementing machine learning models to also rank results based on previous queries will also improve the quality of the search engine, 
+NOTE --- after 4.2, implementing machine learning models (LTR, or learn to rank) to also rank results based on previous queries will also improve the quality of the search engine, 
                     Although I will not be adding them at current, they may be added later.
 
 5. Result presentation
   5.1 Snippet generation (extracting and highlighting revelevant parts of documents to display as snippets)
   5.2 Result formatting (putting the results in a relatively user-friendly format. although this step isn't necessary, as it can be done in the UI section instead, 
                          I would still reccomend doing it anyway)
-
-__________Set up the ranking algorithm__________
-
