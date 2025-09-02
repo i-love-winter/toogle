@@ -23,7 +23,7 @@ A ranking algorithm:
 
 
 
---------------------------------------------------------------------Porgram Starts Here-------------------------------------------------------------------------------------
+--------------------------------------------------------------------Program Starts Here-------------------------------------------------------------------------------------
 
 _____________Set up the web crawler____________
 
@@ -53,5 +53,27 @@ ___________Set up the query processer___________
 1. Parsing the query
   1.1 Tokenization (same as with the indexer, but with the user's inputted data)
   1.2 Normalization (converting terms to a standard format e.g., removing punctuation, lowercasing)
-  1.3
+  1.3 Stopword removal (removing words that provide no meaningful value e.g., "the","and")
+
+2. Query expansion
+  2.1 Synonym expansion (adding synonyms of the query terms to improve results)\
+  2.2 Lemmetization (reducing words to their roots forms)
+
+3. Retrieval of documents
+  3.1 Inverted index lookup (use the inverted index to quickly find documents containing words from the query)
+  3.2 Boolean retrieval (https://medium.com/@ramishamukhtar786/boolean-retrieval-model-be5843ae3c9e) this explains it way better than I could
+
+4. Ranking and relevance 
+  4.1 tf-idf (same as with the indexer, but to decide what order to show the results in)
+  4.2 bm25 (https://www.geeksforgeeks.org/nlp/what-is-bm25-best-matching-25-algorithm) see here for an explanation
+
+NOTE --- after 4.2, implementing machine learning models to also rank results based on previous queries will also improve the quality of the search engine, 
+                    Although I will not be adding them at current, they may be added later.
+
+5. Result presentation
+  5.1 Snippet generation (extracting and highlighting revelevant parts of documents to display as snippets)
+  5.2 Result formatting (putting the results in a relatively user-friendly format. although this step isn't necessary, as it can be done in the UI section instead, 
+                         I would still reccomend doing it anyway)
+
+__________Set up the ranking algorithm__________
 
