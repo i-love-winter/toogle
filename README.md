@@ -1,4 +1,3 @@
 # toogle
 
-A google clone I'm making
-It's currently just me researching, so don't excpect anything for a while
+A google clone I'm making, should hopefully be starting it soon now that I've finished my research on how to actually do it (see psuedo.code for psuedocode)
