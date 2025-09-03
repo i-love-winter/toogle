@@ -3,10 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 
 # define the seed url
-seedurl = "www.google.com"
+url = "https://www.google.com"
 
 # send a HTTP request to the url
-response = requests.get(seedurl)
+response = requests.get(url)
 
 # parse the HTML content of the page
 hmtl_content = response.text
@@ -20,3 +20,5 @@ for a_tag in soup.find_all('a'):
     if href: # checking that href actually exists
         links.append(href)
 
+print("Discovered Links: ")
+print(*links)
