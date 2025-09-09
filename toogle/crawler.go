@@ -1,4 +1,4 @@
-package main
+ package main
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ var visitedurls = make(map[string]bool)
 
 func main() {
 	// define the seed url
-	seedurl := "https://en.wikipedia.org/wiki/Spider"
+	seedurl := "https://www.example.com"
 
 	// call the crawl function
 	crawl(seedurl, 0)
