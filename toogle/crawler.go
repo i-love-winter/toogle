@@ -10,7 +10,7 @@ var visitedurls = make(map[string]bool)
 
 func main() {
 	// define the seed url
-	seedurl := "https://www.example.com"
+	seedurl := "https://www.example.com" // change this to the seedurl you want to use
 
 	// call the crawl function
 	crawl(seedurl, 0)
