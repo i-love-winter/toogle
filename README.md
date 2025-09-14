@@ -1,3 +1,36 @@
 # toogle
 
-A google clone I'm making, should hopefully be starting it soon now that I've finished my research on how to actually do it (see psuedo.code for psuedocode)
+## A custom search engine I'm making :p
+
+Currently, it is just a web crawler written in go, but see the [psuedocode](/psuedo.code) for more information on my plans for how the project works (and how it will work)
+
+## Dependencies
+
+You will need an up-to-date installation of:
+  [Go](https://go.dev/doc/install)
+  [Git](https://github.com/git-guides/install-git)
+
+## How to run:
+
+### ______LINUX & MAC OS______
+1. Git clone and cd into the directory and the directory inside
+2. Run ```make```
+3. Run ```go run crawler.go``` 
+4. And you're done!
+
+### ___________WINDOWS___________
+
+1. Git clone and cd int
+2. Run these commands:
+  ```
+    go mod tidy
+	  go fmt crawler.go
+  ```
+
+## Notes
+
+Do expect the crawler to take a while, it is literally scanning and saving descriptions and titles from every single website ever created. You can however stop it whenever you want with Ctrl + C and it will have updated the database for the websites that have already been scanned
+
+The data will be stored in a SQLite 3 database named crawl_data.db, and it can be viewed through any SQlite gui, but I prefer to use [SQLiteStudio](https://sqlitestudio.pl/). The data can be viweed by:
+1. First pressing database up the top of SQLiteStudio, and pressing add a database.
+2. Then ensure these options are selected:
