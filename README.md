@@ -2,7 +2,7 @@
 
 ## A custom search engine I'm making :p
 
-Currently, it is just a web crawler written in go, but see the [psuedocode](/psuedo.code) for more information on my plans for how the project works (and how it will work)
+Currently, it is just a web crawler written in go, but see the [psuedocode](/pseudo.code) for more information on my plans for how the project works (and how it will work)
 
 ## Dependencies
 
