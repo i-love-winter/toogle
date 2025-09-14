@@ -7,7 +7,9 @@ Currently, it is just a web crawler written in go, but see the [psuedocode](/psu
 ## Dependencies
 
 You will need an up-to-date installation of:
+
   [Go](https://go.dev/doc/install)
+
   [Git](https://github.com/git-guides/install-git)
 
 ## How to run:
@@ -24,7 +26,7 @@ You will need an up-to-date installation of:
 2. Run these commands:
   ```
     go mod tidy
-	  go fmt crawler.go
+	go fmt crawler.go
   ```
 
 ## Accesing the database
