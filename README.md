@@ -28,6 +28,7 @@ You will need an up-to-date installation of:
     go mod tidy
 	go fmt crawler.go
   ```
+3. And finally ```go run crawler.go```
 
 ## Accesing the database
 
