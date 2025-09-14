@@ -40,6 +40,6 @@ The data will be stored in a SQLite 3 database named crawl_data.db, and it can b
    
    ![SQLiteStudio add a database screen](https://raw.githubusercontent.com/i-love-winter/toogle/refs/heads/main/add%20a%20database.png)
 3. Hit okay, then click the down arrows in the bar on the left until you get the pages database
-4. Then select data, and that's all the data you've crawled!
+4. Then select data, and you can browse all the data your crawler has crawled!
 5. Good job!
 
