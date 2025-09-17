@@ -1,6 +1,6 @@
 # toogle
 
-## A custom search engine I'm making :p
+## A custom search engine I'm making
 
 Currently, it is just a web crawler written in go, but see the [psuedocode](/pseudo.code) for more information on my plans for how the project works (and how it will work)
 
