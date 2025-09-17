@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"database/sql"
 	"fmt"
 	"log"
@@ -8,10 +9,23 @@ import (
 
 	"github.com/gocolly/colly"
 	_ "github.com/mattn/go-sqlite3"
+	"golang.org/x/net/html"
 )
 
 // create a map to store visited urls to ensure that you don't visit the same url twice
 var visitedurls = make(map[string]bool)
+
+// extractText recursively gets all visible text from HTML nodes
+func extractText(n *html.Node) string {
+	if n.Type == html.TextNode {
+		return strings.TrimSpace(n.Data)
+	}
+	var result string
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		result += extractText(c) + " "
+	}
+	return strings.Join(strings.Fields(result), " ")
+}
 
 func main() {
 	// create the SQLite database
@@ -27,7 +41,8 @@ func main() {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         url TEXT NOT NULL UNIQUE,
         title TEXT,
-        description TEXT
+        description TEXT,
+				text TEXT
     );`
 	if _, err := db.Exec(createTable); err != nil {
 		log.Fatal(err)
@@ -59,14 +74,22 @@ func crawl(currenturl string, maxdepth int, db *sql.DB) {
 		pageDescription = strings.TrimSpace(e.Attr("content"))
 	})
 
-	// after scraping the HTML, save to DB
 	c.OnScraped(func(r *colly.Response) {
 		pageURL := r.Request.URL.String()
+
+		// Parse HTML and extract text
+		doc, err := html.Parse(bytes.NewReader(r.Body))
+		if err != nil {
+			log.Println("HTML parse error:", err)
+			return
+		}
+		pageText := extractText(doc)
+
 		fmt.Printf("Saving: %s\n", pageURL)
 
-		_, err := db.Exec(
-			`INSERT OR IGNORE INTO pages (url, title, description) VALUES (?, ?, ?)`,
-			pageURL, pageTitle, pageDescription,
+		_, err = db.Exec(
+			`INSERT OR IGNORE INTO pages (url, title, description, text) VALUES (?, ?, ?, ?)`,
+			pageURL, pageTitle, pageDescription, pageText,
 		)
 		if err != nil {
 			log.Println("DB insert error:", err)
