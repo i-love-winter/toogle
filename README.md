@@ -20,9 +20,9 @@ You will need an up-to-date installation of:
 ### ______LINUX & MAC OS______
 1. Git clone and cd into the new directory
 2. Run ```make```
-3. Cd into the crawler dir and run ```go run crawler.go```
-4. Cd into the indexer dir and run ```python indexer.py```
-5. And you're done!
+3. Cd into the crawler dir and run ```go mod tidy``` and ```go run crawler.go```
+5. Cd into the indexer dir and run ```python indexer.py```
+6. And you're done!
 
 ## Accesing and viewing the databases
 
