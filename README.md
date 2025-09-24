@@ -2,7 +2,8 @@
 
 ## A custom search engine I'm making
 
-Currently, it is just a web crawler written in go, but see the [psuedocode](/pseudo.code) for more information on my plans for how the project works (and how it will work)
+Currently, it is just a web crawler and a wip indexer written in goand python, but see the [psuedocode](/pseudo.code) for more information on my plans for how the project works (and how it will work)
+I am using this [list of words](https://github.com/dwyl/english-words/blob/master/words.txt) so that my indexer can sort through different words 
 
 ## Dependencies
 
@@ -19,7 +20,9 @@ You will need an up-to-date installation of:
 ### ______LINUX & MAC OS______
 1. Git clone and cd into the new directory
 2. Run ```make```
-4. And you're done!
+3. Cd into the crawler dir and run ```go run crawler.go```
+4. Cd into the indexer dir and run ```python indexer.py```
+5. And you're done!
 
 ## Accesing and viewing the databases
 
@@ -31,7 +34,7 @@ The data will be stored in a SQLite 3 database named crawl_data.db, and it can b
    
    ![SQLiteStudio add a database screen](https://raw.githubusercontent.com/i-love-winter/toogle/refs/heads/main/add%20a%20database.png)
 3. Hit okay, then click the down arrows in the bar on the left until you get to tables
-4. Select which table you want to view and then 
-5. Then select data, and you can browse all the data your crawler has crawled!
+4. Select which table you want to view
+5. Then select data, and you can browse all the data that you have crawled and tokenized!
 6. Good job!
 
