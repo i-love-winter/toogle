@@ -1,3 +1,6 @@
+import sqlite3
+import time
+
 print(f"\033[1;95m ROW_N0 | NUMBER OF OCCURENCES ") # print a sort of legend
 time.sleep(5) # wait to allow user to see legend
 
@@ -8,7 +11,7 @@ cursor = con.cursor()
 cursor.execute("SELECT rowid, text FROM pages")
 rows = cursor.fetchall()
 
-search_word = b"test"  # bytes now
+search_word = b"test"  # give test word in raw bytes
 
 for rowid, text in rows:
     try:
