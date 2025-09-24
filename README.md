@@ -3,7 +3,7 @@
 ## A custom search engine I'm making
 
 Currently, it is just a web crawler and a wip indexer written in goand python, but see the [psuedocode](/pseudo.code) for more information on my plans for how the project works (and how it will work)
-I am using this [list of words](https://github.com/dwyl/english-words/blob/master/words.txt) so that my indexer can sort through different words 
+I am using an edited version of this [list of words](https://github.com/dwyl/english-words/blob/master/words.txt) with stopwords removed so that my indexer can sort through different words 
 
 ## Dependencies
 
