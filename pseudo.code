@@ -23,7 +23,7 @@ What I need to make:
 
 --------------------------------------------------------------------Program Starts Here-------------------------------------------------------------------------------------
 
-_____________Set up the web crawler____________
+_____________Set up the web crawler____________ ✅
 
 1. Discovery (the crawler starts with a list of URLs to visit, called seeds. It then retrives the contents of the URL and identifies links within the pages to scan as well)
 2. Download (the crawler downloads the content from each page it visits, including images, text, videos etc.)
@@ -33,7 +33,7 @@ _____________Set up the web crawler____________
 
 _______________Set up the indexer_______________
 
-1. Text prepocessing
+1. Text prepocessing ✅
 
   1.1 Setup tokenization (splitting the raw data obtained from the crawler into individual words/phrases, these are known as tokens)
   1.2 Remove stopwords (removing common words that serve no value to the user e.g., "the", "and")
@@ -48,12 +48,12 @@ NOTE --- 2.2 and 2.3 are often reffered to as a tf-idf when used in combination
 
 ___________Set up the query processer___________
 
-1. Parsing the query
+1. Parsing the query 
   1.1 Tokenization (same as with the indexer, but with the user's inputted data)
   1.2 Normalization (converting terms to a standard format e.g., removing punctuation, lowercasing)
   1.3 Stopword removal (removing words that provide no meaningful value e.g., "the","and")
 
-2. Query expansion
+2. Query expansion 
   2.1 Synonym expansion (adding synonyms of the query terms to improve results)\
   2.2 Lemmetization (reducing words to their roots forms)
 
