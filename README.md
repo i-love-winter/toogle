@@ -15,6 +15,8 @@ You will need an up-to-date installation of:
   
   [Python](https://python.org) 
 
+  [spaCy](https://spacy.io/)
+
 ## How to run:
 
 ### ______LINUX & MAC OS______
