@@ -1,5 +1,6 @@
-import sqlite3
-import re
+import sqlite3 # database handling
+import re # regular expressions
+import spacy # lemmetization
 
 # ____load custom word list____
 wordlist_file = "wordlist.txt"
@@ -12,10 +13,12 @@ con = sqlite3.connect('../crawler/crawl_data.db')
 con.text_factory = bytes
 cursor = con.cursor()
 
+# ____create new table to be indexed____
+
 # delete old indexed_data if it exists
 cursor.execute("DROP TABLE IF EXISTS indexed_data")
 
-# create new tablesame schema as pages, but text will hold tokens found in wordlist.txt
+# create table same as pages, but text will be indexed
 cursor.execute("""
 CREATE TABLE indexed_data (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -23,6 +26,8 @@ CREATE TABLE indexed_data (
     token TEXT
 )
 """)
+
+# ____stopword removal and tokenization____
 
 # get rows from the pages table
 cursor.execute("SELECT rowid, text FROM pages")
@@ -37,7 +42,7 @@ for rowid, text in rows:
     # split into candidate words
     words = re.findall(r'\b\w+\b', decoded.lower())
 
-    # keep only those that are in your word list
+    # keep only those that are in wordlist.txt
     matched = [w for w in words if w in valid_words]
 
     # insert into new table
@@ -46,8 +51,28 @@ for rowid, text in rows:
         [(rowid, w) for w in matched]
     )
 
+
+# ________lemmetization_______
+
+# load the english model to know what to lemmetize into
+nlp = spacy.load("en_core_web_sm")
+
+# find text row to lemmetize
+cursor.execute("SELECT text FROM ../crawler/crawl_data.db WHERE indexed_data=?", (1,))
+row = cursor.fetchone()
+
+if row:
+    text = row[0]
+
+    # lemmetize
+    doc = nlp(text)
+    lemmetized_text = " ".join([token.lemma_ for token in doc])
+    # update rows
+    cursor.execute("UPDATE my_table SET text_column=? WHERE id=?", (lemmatized_text, 1))
+    conn.commit()
+
 # commit and close
 con.commit()
 con.close()
 
-print("database updated: tokens saved into 'indexed_data' table.")
+print("database updated - tokens saved into new indexed_data table.")
