@@ -58,7 +58,7 @@ for rowid, text in rows:
 nlp = spacy.load("en_core_web_sm")
 
 # find text row to lemmetize
-cursor.execute("SELECT text FROM ../crawler/crawl_data.db WHERE indexed_data=?", (1,))
+cursor.execute("SELECT text FROM indexed_data WHERE rowid=?", (1,))
 row = cursor.fetchone()
 
 if row:
@@ -68,8 +68,7 @@ if row:
     doc = nlp(text)
     lemmetized_text = " ".join([token.lemma_ for token in doc])
     # update rows
-    cursor.execute("UPDATE my_table SET text_column=? WHERE id=?", (lemmatized_text, 1))
-    conn.commit()
+    cursor.execute("UPDATE indexed_data SET text=? WHERE rowid=?", (lemmatized_text, 1))
 
 # commit and close
 con.commit()
