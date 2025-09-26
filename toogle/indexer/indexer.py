@@ -58,20 +58,22 @@ for rowid, text in rows:
 nlp = spacy.load("en_core_web_sm")
 
 # find text row to lemmetize
-cursor.execute("SELECT text FROM indexed_data WHERE rowid=?", (1,))
+cursor.execute("SELECT token FROM indexed_data WHERE rowid=?", (1,))
 row = cursor.fetchone()
 
 if row:
     text = row[0]
-
+    if isinstance(text, bytes):
+        text = text.decode('utf-8')
     # lemmetize
     doc = nlp(text)
     lemmetized_text = " ".join([token.lemma_ for token in doc])
     # update rows
-    cursor.execute("UPDATE indexed_data SET text=? WHERE rowid=?", (lemmatized_text, 1))
+    cursor.execute("UPDATE indexed_data SET token=? WHERE rowid=?", (lemmetized_text, 1))
 
 # commit and close
 con.commit()
 con.close()
 
 print("database updated - tokens saved into new indexed_data table.")
+
