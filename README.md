@@ -3,7 +3,7 @@
 ## A custom search engine I'm making
 
 Simple search engine complete with a web crawler and an indexer written in Go and Python, respectively. The crawler scans the web for various web pages and their data, and the indexer removes stopwords,
-lemmetizes, and formats all of the data. It also has a search function built into the indexer at current. See [psuedocode](/pseudo.code)for more information on my plans for 
+lemmetizes, and formats all of the data. It also has a search function built into the indexer at current. See [psuedocode](/pseudo.code) for more information on my plans for 
 how the project works (and how it will work)
 
 ## Dependencies
