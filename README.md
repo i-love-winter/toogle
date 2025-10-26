@@ -22,9 +22,11 @@ You will need an up-to-date installation of:
 
   [sklearn](https://scikit-learn.org/)
 
+  [Xcode devtools?](https://developer.apple.com/xcode/)
+  
 ## How to run:
 
-### ______LINUX & MAC OS______
+### ______LINUX, MAC OS & WINDOWS______
 1. Git clone and cd into the crawler directory
 2. Run ```go mod tidy```
 4. Run ```go run crawler.go``` 
