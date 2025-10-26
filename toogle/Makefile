@@ -1,3 +1,4 @@
 cleanup:
+	cd crawler
 	go mod tidy
-	go fmt crawler.go
+
