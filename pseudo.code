@@ -40,7 +40,6 @@ _______________Set up the indexer_______________
   1.3 Lemmetization (reducing words to their base forms or root words. e.g., running turns into running)
 
 2. Creating the index structure
-  2.1 Create an inverted index (an inverted dictionary where each term points to a list of documents containing it)
   2.2 Counting term frequency or TF (counting the number of times a term appears in each document)
   2.3 Implementing inverse document frequency or IDF (IDF is a statistical metric used to decide the importance or rarity of a certain term)
 
