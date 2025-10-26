@@ -22,7 +22,7 @@ You will need an up-to-date installation of:
 
   [sklearn](https://scikit-learn.org/)
 
-  [Xcode devtools? (mac only)](https://developer.apple.com/xcode/)
+  [Xcode devtools (mac only)](https://developer.apple.com/xcode/)
   
 ## How to run:
 
