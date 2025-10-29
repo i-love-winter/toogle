@@ -8,6 +8,7 @@ how the project works (and how it will work)
 
 ## Dependencies
 
+Do note that on windows, it seems like you have to do some shenanigans with installing cgo (even though my project doesn't use it), so I'll try and fix that up soon
 You will need an up-to-date installation of:
 
   [Go](https://go.dev/doc/install)
