@@ -4,11 +4,9 @@
 
 Simple search engine complete with a web crawler and an indexer written in Go and Python, respectively. The crawler scans the web for various web pages and their data, and the indexer removes stopwords,
 lemmetizes, and formats all of the data. It also has a search function built into the indexer at current. See [psuedocode](/pseudo.code) for more information on my plans for 
-how the project works (and how it will work)
+how the project works (and how it will work). Note that it only runs on python 3.7 to 3.12
 
 ## Dependencies
-
-Do note that on windows, it seems like you have to do some shenanigans with installing cgo (even though my project doesn't use it), so I'll try and fix that up soon
 
 You will need an up-to-date installation of:
 
