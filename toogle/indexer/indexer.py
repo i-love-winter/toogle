@@ -101,10 +101,10 @@ for doc_index, page_id in enumerate(page_ids):
     if page_id in matching_ids:
         row = tfidf_matrix.getrow(doc_index)
         scores = zip(row.indices, row.data)
-        # print(f"\nTF-IDF scores for page_id {page_id}:")
+        print(f"\nTF-IDF scores for page_id {page_id}:")
         for token_index, score in scores:
             token = feature_names[token_index]
-            # print(f"  {token}: {score:.4f}")
+            print(f"  {token}: {score:.4f}")
 
 
 # commit and close
