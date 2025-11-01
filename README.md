@@ -34,6 +34,8 @@ You will need an up-to-date installation of:
 4. Run ```go run crawler.go``` 
 5. Cd into the indexer directory and run
      ```python indexer.py```
+6. Cd into the query processor directory and run
+     ```python query.py```
 
 
 ## Accesing the database
@@ -41,8 +43,6 @@ You will need an up-to-date installation of:
 Do expect the crawler to take a while, it is literally scanning and saving descriptions and titles from every single website ever created. You can however stop it whenever
 you want with Ctrl + C and it will have updated the database for the websites that have already been scanned
 
-When running the indexer, as it is $$O(n)$$, the longer you run the crawler for, the longer the indexer will run for. After the indexer has finished indexing all the data, you will be prompted with an input,
-asking what you would like to search, and it will search the indexed_data database for anything matching your input. It will give the link to all pages containing your word, and will display the respective
-pages' tf-idf statistics. Currently, it provides the links in byte format (b'link'), but I need to work on seperating the indexer and query processor into two different programs before I do anything else.
+When running the indexer, as it is $$O(n)$$, the longer you run the crawler for, the longer the indexer will run for. 
 
 Hope you enjoy!
