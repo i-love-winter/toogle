@@ -1,5 +1,6 @@
-import sqlite3
-import spacy
+import sqlite3 # database
+import spacy # lemmatization
+from nltk.corpus import wordnet # synonym expansion
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -34,6 +35,15 @@ if __name__ == "__main__":
     while True:
         try:
             query = input("\nEnter a search term (Ctrl+C to quit): ").strip().lower()
+
+            # synonym expansion
+            synsets = wordnet.synsets(query)
+            synonyms = []
+            for syn in synsets:
+                for lemma in syn.lemmas():
+                    synonyms.append(lemma.name())
+            str_synonyms = " ".join(synonyms)
+
         except KeyboardInterrupt:
             print("\nThanks for using toogle!")
             break
@@ -41,13 +51,18 @@ if __name__ == "__main__":
         if not query:
             continue
 
-        processed = to_lemma(query)
-        ids = search(processed)
+        processed = to_lemma(str_synonyms)
+
+        # quote each term to avoid searching for a collumn instead of data
+        terms = [t.strip(",:") for t in processed.split() if t.strip(",:")]
+        processed_text = " OR ".join(f'"{t}"' for t in terms)
+
+        ids = search(processed_text)
         urls = get_urls(ids)
 
         if not urls:
-            print(f"No pages found containing '{query}'.")
+            print(f'No pages found containing '{query}'.")
         else:
-            print("\nMatching URLs:")
+            print("\nMatching urls:")
             for url in urls:
                 print("  ", url)
