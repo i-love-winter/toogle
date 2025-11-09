@@ -3,7 +3,7 @@
 ## A custom search engine I'm making
 
 Simple search engine complete with a web crawler and an indexer written in Go and Python, respectively. The crawler scans the web for various web pages and their data, and the indexer removes stopwords,
-lemmetizes, and formats all of the data. It also has a search function built into the indexer at current. See [psuedocode](/pseudo.code) for more information on my plans for 
+lemmetizes, and formats all of the data. There is also a query processor with a search function with synonym expansion and lemmetization. See [psuedocode](/pseudo.code) for more information on my plans for 
 how the project works (and how it will work). 
 
 Do note that it only runs on python 3.7 to 3.12
@@ -11,6 +11,8 @@ Do note that it only runs on python 3.7 to 3.12
 ## Dependencies
 
 You will need an up-to-date installation of:
+
+  [NLTK](https://www.nltk.org/install.html)
 
   [Go](https://go.dev/doc/install)
 
@@ -25,6 +27,8 @@ You will need an up-to-date installation of:
   [sklearn](https://scikit-learn.org/)
 
   [Xcode devtools (mac only)](https://developer.apple.com/xcode/)
+
+  Note that after installing nltk, you will need to run ```nltk.download('wordnet')``` to install wordnet
   
 ## How to run:
 
