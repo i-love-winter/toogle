@@ -1,4 +1,4 @@
-# toogle (not currently working, fixing as soon as i can)
+# toogle
 
 ## A custom search engine I'm making
 
