@@ -38,8 +38,6 @@ You will need an up-to-date installation of:
 4. Run ```go run crawler.go``` 
 5. Cd into the indexer directory and run
      ```python indexer.py```
-6. Cd into the query processor directory and run
-     ```python query.py```
 
 
 ## Accesing the database
@@ -48,5 +46,6 @@ Do expect the crawler to take a while, it is literally scanning and saving descr
 you want with Ctrl + C and it will have updated the database for the websites that have already been scanned
 
 When running the indexer, as it is $$O(n)$$, the longer you run the crawler for, the longer the indexer will run for. 
+The indexer will eventually prompt you to search for something, and then it will print the results (if there are any) along with their tf-idf scores
 
 Hope you enjoy!
